@@ -1,54 +1,28 @@
-# Spring Boot with Springdoc-OpenAPI
-Springdoc-OpenAPI is a powerful library that simplifies the process of generating OpenAPI (formerly Swagger) documentation for your Spring Boot 3 REST APIs. This documentation serves as a valuable tool for both developers and API consumers, providing clear insights into API endpoints, request/response structures, and authentication methods.
+# Spring Boot multiple modules
+This project is a Spring Boot application structured into multiple modules for improved maintainability, reusability, and modularity. It leverages Gradle as the build system.
 
-### Spring Boot Swagger Gradle dependency
-– **For Spring Boot 3:**
-To use Swagger 3 in your Gradle project, you need to add the springdoc-openapi-starter-webmvc-ui dependency to your project’s build.gradle file:
+## Project Structure
+A typical layout for a Gradle-based Spring Boot multi-module project looks like this:
+
 ```
-implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.5.0'
+project-root/
+├── settings.gradle    # Includes all child modules
+├── build.gradle        # Top-level Gradle configuration
+├── module-a/
+│   ├── build.gradle      # Module-specific build configuration
+│   └── src/main/java/...  # Java source code for module-a
+├── module-b/
+│   ├── build.gradle      # Module-specific build configuration
+│   └── src/main/java/...  # Java source code for module-b
+└── ...                   # Additional modules as needed
 ```
-– **For Spring Boot 2:**
-With earlier version of Spring Boot, you can use springdoc-openapi-ui dependency:
-```
-implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.15'
-```
-### Run and Check
-- Run Spring Boot project and hit url: http://localhost:8080/swagger-ui/index.html to access swagger.
-- To see document in Json format hit url: http://localhost:8080/v3/api-docs
+This is a flexible structure, and you can adapt it to your project's needs. Common module types include:
 
-### Swagger Configuration in Spring Boot
-```
-#Open Api Swagger
-openapi.dev-url=http://localhost:8080
-# replace with prod url
-openapi.prod-url=http://localhost:8080 
-springdoc.swagger-ui.path=/swagger-ui.html
-springdoc.api-docs.path=/api-docs
-springdoc.packages-to-scan=com.developer.controller
-springdoc.swagger-ui.tryItOutEnabled=true
-springdoc.swagger-ui.operationsSorter=method
-springdoc.swagger-ui.tagsSorter=alpha
-springdoc.swagger-ui.filter=true
-#springdoc.api-docs.enabled=false
-#springdoc.swagger-ui.enabled=false
-```
-
-– Use **api-docs.enabled=false** if you want to disable springdoc-openapi endpoints.
-– Use **swagger-ui.enabled=false** to disable the swagger-ui endpoint.
-
-– **api-docs.path** is for custom path of the OpenAPI documentation in Json format. Now it is http://localhost:8080/api-docs.
-
-– **swagger-ui.path** is for custom path of the Swagger documentation. If you visit http://localhost:8080/swagger-ui.html, the browser will redirect you to http://localhost:8080/swagger-ui/index.html
-
-– **packages-to-scan=packageA,packageB:** list of packages to scan with comma separated. We also have **packages-to-exclude, paths-to-match, paths-to-exclude.**
-
-– **swagger-ui.tryItOutEnabled** if you want to enable “Try it out” section by default.
-– **swagger-ui.operationsSorter:** ‘alpha’ (sort by paths alphanumerically), ‘method’ (sort by HTTP method) or a function.
-– **swagger-ui.tagsSorter:** ‘alpha’ (sort by paths alphanumerically) or a function.
-
-– **swagger-ui.filter:** true/false to enable or disable filter the tagged operations. We can set a string, the filtering will be enabled using that string as the filter expression which is case sensitive matching anywhere inside the tag.
-
-**You can also use enable-spring-security, enable-hateoas, enable-data-rest... etc.**
+**Model:** Contains domain objects (entities) representing business concepts.
+**Service:** Encapsulates business logic and interactions with other modules or external systems.
+**Repository:** Handles data persistence using repositories or data access objects (DAOs).
+**API:** Provides a well-defined interface for exposing services or functionalities to other applications.
+**Web:** Implements the web layer with controllers, views, and resources for handling HTTP requests.
 
 ### Reference Documentation
 For further reference, please consider the following sections:
