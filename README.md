@@ -1,4 +1,4 @@
-# Spring Boot multiple modules
+# Spring Boot Multiple Modules
 This project is a Spring Boot application structured into multiple modules for improved maintainability, reusability, and modularity. It leverages Gradle as the build system.
 
 ## Project Structure
