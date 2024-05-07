@@ -18,11 +18,11 @@ project-root/
 ```
 This is a flexible structure, and you can adapt it to your project's needs. Common module types include:
 
-**Model:** Contains domain objects (entities) representing business concepts.
-**Service:** Encapsulates business logic and interactions with other modules or external systems.
-**Repository:** Handles data persistence using repositories or data access objects (DAOs).
-**API:** Provides a well-defined interface for exposing services or functionalities to other applications.
-**Web:** Implements the web layer with controllers, views, and resources for handling HTTP requests.
+- **Model:** Contains domain objects (entities) representing business concepts.
+- **Service:** Encapsulates business logic and interactions with other modules or external systems.
+- **Repository:** Handles data persistence using repositories or data access objects (DAOs).
+- **API:** Provides a well-defined interface for exposing services or functionalities to other applications.
+- **Web:** Implements the web layer with controllers, views, and resources for handling HTTP requests.
 
 ### Reference Documentation
 For further reference, please consider the following sections:
