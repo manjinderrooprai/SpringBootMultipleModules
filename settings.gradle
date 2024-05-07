@@ -1,0 +1,4 @@
+rootProject.name = 'SpringBootMultipleModules'
+include 'modules:employee'
+include 'modules:git'
+include 'modules:common'
